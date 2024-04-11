@@ -30,3 +30,34 @@
 #search-section span:hover{
     background-color:rgba(77, 115, 77, 0.5);
 }
+#all-cats{
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.a-cat{
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.a-cat img{
+    border-radius: 10px 10px 0px 0px;
+    height: 10em;
+    width: fit-content;
+    display: block;
+}
+
+.a-cat div{
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.a-cat span{
+    margin-left: 10px;
+    font-size: large;
+    font-weight: bold;
+}
