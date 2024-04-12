@@ -32,12 +32,23 @@ function updatePage() {
 }
 
 
-function getCats(){
+function displayCats(data) {
+    let divEl = document.getElementById("all-cats");
+
+    for (let i = 0; i < data.length; i++) {
+        let cat = data[i];
+        console.log(cat);
+    }
+}
+
+
+function getCats (){
     fetch(`https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=${page}`, {
     method: "GET",
     contentType: "application/json",
 }).then((response) => response.json()).then(function (data){
     console.log(data);
+    displayCats(data)
 });
 
 
