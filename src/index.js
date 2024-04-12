@@ -2,10 +2,8 @@ let page = 1;
 
 let paginationEl = document.getElementById("pagination");
 
-
 let paginationBtns = paginationEl.getElementsByTagName("button");
 //console.log(paginationBtns);
-
 
 let searchBtn = document.getElementById("search-btn");
 
@@ -14,16 +12,16 @@ paginationBtns[1].addEventListener("click", goForward);
 
 getCatfacts();
 
-searchBtn.addEventListener("click", function(){
-    //Three Event Listeners
-    //console.log("search clicked");
-    let input = document.getElementById("search-input");
+searchBtn.addEventListener("click", function () {
+  //Three Event Listeners
+  //console.log("search clicked");
+  let input = document.getElementById("search-input");
 
-    if (input.value === "") return;
+  if (input.value === "") return;
 
-    if (input.vale.length<4) return;
+  if (input.value.length < 4) return;
 
-    searchCatfacts(input.value);
+  searchCatfacts(input.value);
 });
 
 function goBack() {
@@ -53,8 +51,7 @@ function updatePage() {
       return;
     }
 
-    fetch(`https://cat-fact.herokuapp.com/facts/random?search=${q}`, 
-    {
+    fetch(`https://cat-fact.herokuapp.com/facts/random?search=${q}`, {
       method: "GET",
       contentType: "application/json",
     })
