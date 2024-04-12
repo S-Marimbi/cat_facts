@@ -32,9 +32,22 @@ function updatePage() {
   let span = paginationEl.getElementsByTagName("span")[0];
   span.innerText = page;
 
+  function searchCatfacts(q) {
+    if (q === "" || q === null || q === undefined) {
+      return;
+    }
 
-
-
+    fetch(`https://cat-fact.herokuapp.com/facts/random?search=${q}`, 
+    {
+      method: "GET",
+      contentType: "application/json",
+    })
+      .then((response) => response.json())
+      .then(function (data) {
+        console.log(data);
+        displayCats(data);
+      });
+  }
 }
 function displayCats(data) {
   let divEl = document.getElementById("all-cats");
@@ -44,7 +57,6 @@ function displayCats(data) {
     console.log(cat);
   }
 }
-
 
 function getCatfacts() {
   fetch(
