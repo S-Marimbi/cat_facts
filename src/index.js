@@ -16,6 +16,13 @@ getCatfacts();
 
 searchBtn.addEventListener("click", function(){
     //console.log("search clicked");
+    let input = document.getElementById("search-input");
+
+    if (input.value === "") return;
+
+    if (input.vale.length<4) return;
+
+    searchCatfacts(input.value);
 });
 
 function goBack() {
@@ -53,11 +60,11 @@ function updatePage() {
       .then((response) => response.json())
       .then(function (data) {
         console.log(data);
-        displayCats(data);
+        displayCatfacts(data);
       });
   }
 }
-function displayCats(data) {
+function displayCatfacts(data) {
   let divEl = document.getElementById("all-cats");
 
   for (let i = 0; i < data.length; i++) {
@@ -77,6 +84,6 @@ function getCatfacts() {
     .then((response) => response.json())
     .then(function (data) {
       console.log(data);
-      displayCats(data);
+      displayCatfacts(data);
     });
 }
