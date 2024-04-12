@@ -2,54 +2,61 @@ let page = 1;
 
 let paginationEl = document.getElementById("pagination");
 
-
 let paginationBtns = paginationEl.getElementsByTagName("button");
 //console.log(paginationBtns);
 
-paginationBtns[0].addEventListener('click' , goBack);
-paginationBtns[1].addEventListener('click' , goForward);
+paginationBtns[0].addEventListener("click", goBack);
+paginationBtns[1].addEventListener("click", goForward);
 
+getCatfacts();
 
-function goBack(){
-    console.log("Back");
-    if(page = 1) {
-        return;
-    }
-    page = page - 1;
-    updatePage();
+function goBack() {
+  console.log("Back");
+  if ((page = 1)) {
+    return;
+  }
+  page = page - 1;
+  updatePage();
+  getCatfacts();
 }
 
 function goForward() {
-    console.log("Go Forward");
-    page = page + 1;
-    updatePage();
+  console.log("Go Forward");
+  page = page + 1;
+  updatePage();
+  getCatfacts();
 }
 
 //To update current page
 function updatePage() {
-    let span = paginationEl.getElementsByTagName("span")[0];
-    span.innerText = page;
+  let span = paginationEl.getElementsByTagName("span")[0];
+  span.innerText = page;
+
+
+
+
 }
-
-
 function displayCats(data) {
-    let divEl = document.getElementById("all-cats");
+  let divEl = document.getElementById("all-cats");
 
-    for (let i = 0; i < data.length; i++) {
-        let cat = data[i];
-        console.log(cat);
-    }
+  for (let i = 0; i < data.length; i++) {
+    let cat = data[i];
+    console.log(cat);
+  }
 }
 
 
-function getCats (){
-    fetch(`https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=${page}`, {
-    method: "GET",
-    contentType: "application/json",
-}).then((response) => response.json()).then(function (data){
-    console.log(data);
-    displayCats(data)
-});
-
-
+function getCatfacts() {
+  fetch(
+    `https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=${page}`,
+    {
+      method: "GET",
+      contentType: "application/json",
+    }
+  )
+    .then((response) => response.json())
+    .then(function (data) {
+      console.log(data);
+      displayCats(data);
+    });
 }
