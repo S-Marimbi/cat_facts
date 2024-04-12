@@ -2,13 +2,21 @@ let page = 1;
 
 let paginationEl = document.getElementById("pagination");
 
+
 let paginationBtns = paginationEl.getElementsByTagName("button");
 //console.log(paginationBtns);
+
+
+let searchBtn = document.getElementById("search-btn");
 
 paginationBtns[0].addEventListener("click", goBack);
 paginationBtns[1].addEventListener("click", goForward);
 
 getCatfacts();
+
+searchBtn.addEventListener("click", function(){
+    //console.log("search clicked");
+});
 
 function goBack() {
   console.log("Back");
