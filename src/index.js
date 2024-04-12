@@ -15,6 +15,7 @@ paginationBtns[1].addEventListener("click", goForward);
 getCatfacts();
 
 searchBtn.addEventListener("click", function(){
+    //Three Event Listeners
     //console.log("search clicked");
     let input = document.getElementById("search-input");
 
